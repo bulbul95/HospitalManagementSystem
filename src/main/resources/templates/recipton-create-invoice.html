@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- create-invoice24:07-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+			<div class="header-left">
+				<a class="logo">
+					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Medicare&nbsp;PMS</span>
+				</a>
+			</div>
+			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown d-none d-sm-block">
+                   
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">
+												<img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+											</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+												<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+												<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">L</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">G</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+												<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+												<p class="noti-time"><span class="notification-time">2 days ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities.html">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+             
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" th:src="@{/images/doctor/d.jpg}" width="40" alt="Admin">
+							<span class="status online"></span></span>
+                        <span>Recptionist</span>
+                    </a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" >My Profile</a>
+						
+						<a class="dropdown-item" >Logout</a>
+					</div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                       <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+						<li>
+                            <a th:href="@{/reciptiondoctorprofile}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/patnts}"><i class="fa fa-wheelchair"></i><span>Patients</span></a>
+                        </li>
+                        <li>
+                            <a th:href="@{reciponcovid}"><i class="fa fa-calendar-check-o"></i> <span>Covid-Test</span></a>
+                        </li>
+                        
+                        <li>
+                            <a th:href="@{/recptiondeptmnt}"><i class="fa fa-hospital-o">&nbsp;Departments</i> <span></span></a>
+                        </li>
+                         <li>
+                            <a th:href="@{/appointmentShow}"><i class="fa fa-calendar-check-o"></i> <span>Appoinments</span></a>
+                        </li>
+                        
+                        
+                         <li class="submenu">
+                            <a href="#"><i class="fa fa-envelope"></i> <span>Invoice</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                
+                                  <li>
+                                          <a th:href="@{/invoicc}"><i class="fa fa-hospital-o">&nbsp;CreatInvoice</i> <span></span></a>
+                                  </li>
+                        
+                                   <li>
+                                          <a th:href="@{/inviceView}"><i class="fa fa-hospital-o">&nbsp;ViewInvoice</i> <span></span></a>
+                                  </li>
+                               
+                            </ul>
+                        </li>
+                     
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-envelope"></i> <span> Message</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a th:href="@{/reciptionsms}">Sms</a></li>
+                               
+                            </ul>
+                        </li>
+                     
+						
+                        <li>
+                            <a th:href="@{/logoutadmin}"><i class="fa fa-cog"></i> <span>Logout</span></a>
+                        </li>
+                       
+                        
+                      
+                      
+                      
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Create Invoice</h4>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form th:action="@{/inserInvoice}">
+                            <div class="row" th:each="p: ${psnt}">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Invoice ID<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="invoiceId" th:value="${id}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                   <div class="form-group">
+                                        <label>Patient Name<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="patientName" th:value="${p.patientName}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Age<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="age" th:value="${p.patientAge}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                   <div class="form-group">
+                                        <label>Phone<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="phone" th:value="${p.patientMobile}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Address<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="address" th:value="${p.patientAddress}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Refernc Doctor<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="referenceDoctor" th:value="${p.referenceDoctor}" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                  <div class="form-group">
+                                        <label>Billing Address<span class="text-danger"></span></label>
+                                       <div class="form-group">
+                                            <input name="billingAddress" class="form-control" type="text" required="required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Invoice date <span class="text-danger"></span></label>
+                                        <div class="form-group">
+                                            <input name="invoiceDate" class="form-control" type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-white">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 20px">#</th>
+                                                    <th class="col-sm-2">Item</th>
+                                                    <th class="col-md-6">Description</th>
+                                                    <th style="width:100px;">Unit Cost</th>
+                                                   
+                                                    <th>Amount</th>
+                                                    <th> </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <input value="Bed Charge" class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input  class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" style="width:100px" type="text">
+                                                    </td>
+                                                    <td>
+                                                        <input name="bedCharge" value="0"  id="bed" onkeyup="invoicCal()" class="form-control" style="width:80px" type="number">
+                                                    </td>
+                                                   
+                                                    <td><a href="javascript:void(0)" class="text-success font-18" title="Add"><i class="fa fa-plus"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>
+                                                        <input value="Medecine Charge"  class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" style="width:100px" type="text">
+                                                    </td>
+                                                    <td>
+                                                        <input name="medecineCharge" value="0"  id="medicin" onkeyup="invoicCal()" class="form-control" style="width:80px" type="number">
+                                                    </td>
+                                                   
+                                                     <td><a href="javascript:void(0)" class="text-success font-18" title="Add"><i class="fa fa-plus"></i></a></td>
+                                                </tr>
+                                                 <tr>
+                                                    <td>3</td>
+                                                    <td>
+                                                        <input value="Pathology Charge" class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input  class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" style="width:100px" type="text">
+                                                    </td>
+                                                    <td>
+                                                        <input name="pathologyCharge" value="0"  id="pathology" onkeyup="invoicCal()" class="form-control" style="width:80px" type="number" required="required">
+                                                    </td>
+                                                   
+                                                    <td><a href="javascript:void(0)" class="text-success font-18" title="Add"><i class="fa fa-plus"></i></a></td>
+                                                </tr>
+                                                 <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <input  class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input  class="form-control" type="text" style="min-width:150px">
+                                                    </td>
+                                                    <td>
+                                                        <input value="SubTotal =" class="form-control" style="width:100px" type="text">
+                                                    </td>
+                                                    <td>
+                                                        <input name="subTotal"   id="total" class="form-control" style="width:80px" type="number">
+                                                    </td>
+                                                   
+                                                    <td><a href="javascript:void(0)" class="text-success font-18" title="Add"><i class="fa fa-plus"></i></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-white">
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                   
+                                                   
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td colspan="5" class="text-right">
+                                                        Discount %
+                                                    </td>
+                                                    <td style="text-align: right; padding-right: 30px;width: 230px">
+                                                        <input name="discount" onkeyup="invoicDis()" id="discount" class="form-control text-right" type="number">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" style="text-align: right; font-weight: bold">
+                                                        Grand Total
+                                                    </td>
+                                                    <td>
+                                                        <input name="grandTotal" id="gtotal" class="form-control" style="width:100px" type="text">
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                     
+                                                        <td><h1 style="color:rgb(51,153,255);">Payment Method</h1></td>
+                                                          
+                                                     </tr>
+                                                     <tr>
+                                                     
+                                                            <td><img height="100px" width="300px" alt="" th:src="@{/images/payment/pa.jpg}"></td>
+                                                          
+                                                     </tr>
+                                                      <tr>
+                                                        <td>
+                                                             <select name="paymentMethod" required>
+                                                                <option value="Visa">Visa</option>
+                                                                 <option value="Bkash">Bkash</option>
+                                                                  <option value="PayPale">PayPale</option>
+                                                                   <option value="Nagad">Nagad</option>
+                                                           </select>
+                                                        </td>
+                                                           
+                                                          
+                                                     </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="text-center m-t-20">
+                                
+                                <button type="submit" class="btn btn-primary submit-btn">save & bill</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="notification-box">
+                <div class="msg-sidebar notifications msg-noti">
+                    <div class="topnav-dropdown-header">
+                        <span>Messages</span>
+                    </div>
+                    <div class="drop-scroll msg-list-scroll" id="msg_list">
+                        <ul class="list-box">
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Richard Miles </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item new-message">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">John Doe</span>
+                                            <span class="message-time">1 Aug</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Tarah Shropshire </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Mike Litorus</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Catherine Manseau </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">D</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Domenic Houston </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">B</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Buster Wigton </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Rolland Webber </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Claire Mapes </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Melita Faucher</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Jeffery Lalor</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">L</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Loren Gatlin</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Tarah Shropshire</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a href="chat.html">See all messages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+  
+  
+    
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/js/app.js"></script>
+   
+   
+   <script type="text/javascript">
+   let total;
+   function invoicCal(){
+   	let bedcharg=parseInt(document.getElementById("bed").value);
+   	let medicin=parseInt(document.getElementById("medicin").value);
+   	let pathology=parseInt(document.getElementById("pathology").value);
+   	
+   	let totall = (bedcharg+medicin+pathology);
+   	document.getElementById("total").value=totall;
+    total=totall;
+   	
+ 	document.getElementById("gtotal").value=totall; 
+   }
+   
+   
+   function invoicDis(){
+	   
+	
+		let discunt=parseInt(document.getElementById("discount").value);
+	    let disamount=total*discunt/100;
+	    document.getElementById("gtotal").value=total-disamount;
+   }
+   
+   </script>
+           
+   
+</body>
+
+
+<!-- create-invoice24:07-->
+</html>
